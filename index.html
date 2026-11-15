@@ -137,8 +137,16 @@ h2 em{font-family:"Newsreader",serif;font-style:italic;font-weight:500;color:var
 .metric{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted2);letter-spacing:.05em}
 .pcard a.live{font-weight:600;font-size:14px;color:var(--accent);text-decoration:none;display:inline-flex;gap:6px;align-items:center;padding:6px 0}
 .pcard a.live:hover{text-decoration:underline}
+.proj-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.proj-btn{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;padding:9px 13px;border-radius:9px;text-decoration:none;border:1px solid var(--line2);color:var(--text);background:rgba(255,255,255,.03);transition:border-color .2s,background .2s;line-height:1.2}
+.proj-btn:hover{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.06)}
+.proj-btn.primary{background:var(--text);color:#0c0f18;border-color:var(--text)}
+.proj-btn.primary:hover{background:#fff;border-color:#fff}
+.proj-btn.subtle{color:var(--muted);font-weight:500}
+.proj-note{font-size:13px;color:var(--muted2);border:1px solid var(--line);border-radius:9px;padding:9px 12px;background:rgba(255,255,255,.02);line-height:1.45}
 .badge-live{position:absolute;top:22px;right:22px;font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;color:#7ee2a0;border:1px solid rgba(126,226,160,.35);padding:4px 8px;border-radius:999px;font-weight:600}
 .badge-soon{position:absolute;top:22px;right:22px;font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;color:var(--muted2);border:1px solid var(--line);padding:4px 8px;border-radius:999px;font-weight:600}
+.badge-code{position:absolute;top:22px;right:22px;font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.08em;color:#d9d4ff;border:1px solid var(--accent-line);background:var(--accent-soft);padding:4px 8px;border-radius:999px;font-weight:600}
 
 /* education */
 .edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
@@ -303,12 +311,13 @@ footer{padding:52px 0 110px;color:var(--muted2);font-size:14px}
     <h2>Selected Projects</h2>
     <p class="sec-intro">Products designed around a specific problem, built and shipped end to end.</p>
     <div class="proj-grid">
-      <article class="pcard"><span class="badge-soon">ANDERSON</span><span class="idx">P · 01</span><h3>University Dating App</h3><p>AI matched dating app built at Anderson University. Smarter matching using interests and compatibility signals, designed for a campus community.</p><span class="metric">AI MATCHING · CAMPUS PRODUCT</span></article>
-      <article class="pcard"><span class="badge-live">LIVE</span><span class="idx">P · 02</span><h3>SponsorLens</h3><p>Helps international students find H-1B sponsoring employers quickly, replacing hours of spreadsheet research with one focused search.</p><span class="metric">FOR INTERNATIONAL STUDENTS</span><a class="live" href="https://sponsorlens.vercel.app" target="_blank" rel="noopener">Visit SponsorLens ↗</a></article>
-      <article class="pcard"><span class="badge-live">LIVE</span><span class="idx">P · 03</span><h3>Realtime Expense Tracker Pro</h3><p>Live expense tracking with a clean, instant feel. Built to make everyday money habits visible without friction.</p><span class="metric">REALTIME · PERSONAL FINANCE</span><a class="live" href="https://realtime-expense-tracker-pro.vercel.app" target="_blank" rel="noopener">Try the tracker ↗</a></article>
-      <article class="pcard"><span class="idx">P · 04</span><h3>Trauma Tester: Light Up From Within</h3><p>A gentle personal trauma self assessment tool. Thoughtful, private by design, and built with care for people doing difficult inner work.</p><span class="metric">LIVE ON VERCEL AND LOVABLE</span></article>
-      <article class="pcard"><span class="idx">P · 05</span><h3>UReport Chatbot</h3><p>UNICEF India youth engagement chatbot. Helped young people share opinions and access information at national scale.</p><span class="metric">UNICEF INDIA · YOUTH AT SCALE</span></article>
-      <article class="pcard"><span class="idx">P · 06</span><h3>Pen with Abrar</h3><p>A personal blog on digital wellness and life. Honest writing about phones, focus, and staying human online.</p><span class="metric">BLOG · DIGITAL WELLNESS</span><a class="live" href="https://penwithabrar.blogspot.com" target="_blank" rel="noopener">Read the blog ↗</a></article>
+      <article class="pcard"><span class="badge-soon">CAMPUS</span><span class="idx">P · 01</span><h3>University Dating App</h3><p>AI matched dating app built at Anderson University. Smarter matching using interests and compatibility signals, designed for a campus community.</p><span class="metric">AI MATCHING · CAMPUS PRODUCT</span><div class="proj-note">Campus project, no public demo</div></article>
+      <article class="pcard"><span class="badge-code">CODE ON GITHUB</span><span class="idx">P · 02</span><h3>SponsorLens</h3><p>Helps international students find H-1B sponsoring employers quickly, replacing hours of spreadsheet research with one focused search.</p><span class="metric">FOR INTERNATIONAL STUDENTS</span><div class="proj-links"><a class="proj-btn" href="https://github.com/abrarAi-Dev/sponsorlens" target="_blank" rel="noopener">View code on GitHub ↗</a></div></article>
+      <article class="pcard"><span class="badge-code">CODE ON GITHUB</span><span class="idx">P · 03</span><h3>Realtime Expense Tracker Pro</h3><p>Expense tracking with a clean, instant feel. Built to make everyday money habits visible without friction.</p><span class="metric">REALTIME · PERSONAL FINANCE</span><div class="proj-links"><a class="proj-btn" href="https://github.com/abrarAi-Dev/realtime-expense-tracker-pro" target="_blank" rel="noopener">View code on GitHub ↗</a></div></article>
+      <article class="pcard"><span class="badge-live">LIVE</span><span class="idx">P · 04</span><h3>Trauma Tester: Light Up From Within</h3><p>A gentle personal trauma self assessment tool. Thoughtful, private by design, and built with care for people doing difficult inner work.</p><span class="metric">LIVE ON VERCEL AND LOVABLE</span><div class="proj-links"><a class="proj-btn primary" href="https://a-personal-touch-to-calm-yourself.vercel.app" target="_blank" rel="noopener">Visit live site ↗</a><a class="proj-btn" href="https://light-within-gentle-grounding.lovable.app" target="_blank" rel="noopener">Lovable version ↗</a><a class="proj-btn subtle" href="https://github.com/abrarAi-Dev/trauma-tester" target="_blank" rel="noopener">GitHub ↗</a></div></article>
+      <article class="pcard"><span class="badge-live">LIVE</span><span class="idx">P · 05</span><h3>Genuine Interiors</h3><p>Client website built for Genuine Interiors Constructions, Chennai, with a services showcase and free consultation booking.</p><span class="metric">CLIENT SITE · CHENNAI</span><div class="proj-links"><a class="proj-btn primary" href="https://genuine-interiors.vercel.app" target="_blank" rel="noopener">Visit live site ↗</a><a class="proj-btn subtle" href="https://github.com/abrarAi-Dev/genuine-interiors" target="_blank" rel="noopener">GitHub ↗</a></div></article>
+      <article class="pcard"><span class="badge-soon">UNICEF</span><span class="idx">P · 06</span><h3>UReport Chatbot</h3><p>UNICEF India youth engagement chatbot. Helped young people share opinions and access information at national scale.</p><span class="metric">UNICEF INDIA · YOUTH AT SCALE</span><div class="proj-note">UNICEF India program work</div></article>
+      <article class="pcard"><span class="badge-live">LIVE</span><span class="idx">P · 07</span><h3>Pen with Abrar</h3><p>A personal blog on digital wellness and life. Honest writing about phones, focus, and staying human online.</p><span class="metric">BLOG · DIGITAL WELLNESS</span><div class="proj-links"><a class="proj-btn primary" href="https://penwithabrar.blogspot.com" target="_blank" rel="noopener">Read the blog ↗</a></div></article>
     </div>
   </section>
 
@@ -360,6 +369,7 @@ footer{padding:52px 0 110px;color:var(--muted2);font-size:14px}
       <div><strong>Abrar Shariff Mohammed</strong> · Business Analyst working with emerging AI</div>
       <div>© 2026 Abrar Shariff Mohammed · Charlotte, NC</div>
     </div>
+    <div style="margin-top:14px;font-size:13.5px"><a href="https://github.com/abrarAi-Dev/abrarAi-Dev.github.io" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-weight:500">Portfolio source on GitHub ↗</a></div>
   </footer>
 </main>
 
