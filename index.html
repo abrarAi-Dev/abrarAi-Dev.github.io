@@ -9,191 +9,176 @@
 <title>Abrar Shariff | Business Analyst and AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#070512; --bg2:#0d0a1f; --card:rgba(255,255,255,.06); --card2:rgba(255,255,255,.09);
-  --line:rgba(255,255,255,.12); --text:#f6f3ff; --muted:#c9c2e0; --muted2:#9a92b8;
-  --violet:#8b5cf6; --violet2:#a78bfa; --cyan:#22d3ee; --lime:#bef264; --pink:#f472b6; --yellow:#fde047;
-  --radius:24px;
+  --bg:#0a0d16; --bg2:#0e1220; --card:rgba(255,255,255,.035); --card2:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+  --text:#f4f1ea; --muted:#b6b3ad; --muted2:#8b897f;
+  --accent:#8f83e8; --accent-soft:rgba(143,131,232,.14); --accent-line:rgba(143,131,232,.4);
+  --radius:18px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth; scroll-padding-top:110px}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Outfit",system-ui,sans-serif;overflow-x:hidden;line-height:1.6}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Outfit",system-ui,sans-serif;overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 button,[role="button"]{min-height:44px}
-::selection{background:var(--lime);color:#111}
+::selection{background:var(--accent);color:#0a0d16}
 
-/* background blobs */
-.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.55;pointer-events:none;z-index:0}
-.blob1{width:520px;height:520px;background:#6d28d9;top:-120px;left:-80px;animation:drift 14s ease-in-out infinite alternate}
-.blob2{width:460px;height:460px;background:#0891b2;top:35%;right:-160px;animation:drift2 18s ease-in-out infinite alternate}
-.blob3{width:380px;height:380px;background:#db2777;bottom:-100px;left:30%;opacity:.35;animation:drift 20s ease-in-out infinite alternate-reverse}
-@keyframes drift{to{transform:translate(60px,40px) scale(1.08)}}
-@keyframes drift2{to{transform:translate(-50px,60px) scale(1.12)}}
-.grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,black 30%,transparent 75%);pointer-events:none;z-index:0}
+/* ambient background: one quiet gradient wash, nothing animated */
+.ambient{position:fixed;inset:0;pointer-events:none;z-index:0;background:
+  radial-gradient(ellipse 70% 42% at 50% -8%,rgba(143,131,232,.16),transparent 70%),
+  radial-gradient(ellipse 55% 40% at 88% 108%,rgba(64,86,160,.12),transparent 70%),
+  linear-gradient(180deg,var(--bg) 0%,var(--bg2) 55%,var(--bg) 100%)}
 
 /* nav */
 .topbar{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 20px));z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;letter-spacing:-.02em}
-.logo-badge{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--violet),var(--pink) 55%,var(--cyan));display:grid;place-items:center;font-size:18px;box-shadow:0 8px 30px rgba(139,92,246,.5);border:2px solid rgba(255,255,255,.25);transform:rotate(-4deg)}
-.logo span small{display:block;font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.18em;color:var(--muted);font-weight:500;line-height:1}
-.pillnav{display:flex;gap:2px;background:rgba(13,10,31,.75);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:999px;padding:6px}
-.pillnav a{text-decoration:none;font-size:13.5px;font-weight:600;padding:9px 14px;border-radius:999px;color:var(--muted);white-space:nowrap}
-.pillnav a:hover{background:rgba(255,255,255,.1);color:#fff}
-.open-pill{display:flex;align-items:center;gap:8px;background:rgba(190,242,100,.12);border:1px solid rgba(190,242,100,.4);color:var(--lime);font-family:"JetBrains Mono",monospace;font-size:11px;padding:10px 14px;border-radius:999px;text-decoration:none;white-space:nowrap}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(190,242,100,.6);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
-@media(max-width:860px){.pillnav{display:none}.open-pill{font-size:10px;padding:9px 11px}}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-badge{width:42px;height:42px;border-radius:11px;background:linear-gradient(140deg,#6f62d6,#4c439e);display:grid;place-items:center;font-size:15px;font-weight:700;letter-spacing:.04em;color:#fff;border:1px solid rgba(255,255,255,.22);flex:none}
+.logo-name{font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.15}
+.logo-name small{display:block;font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.22em;color:var(--muted2);font-weight:500;margin-top:2px}
+.pillnav{display:flex;gap:2px;background:rgba(12,15,26,.78);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:999px;padding:5px}
+.pillnav a{text-decoration:none;font-size:13.5px;font-weight:500;padding:9px 14px;border-radius:999px;color:var(--muted);white-space:nowrap;transition:color .2s,background .2s}
+.pillnav a:hover{background:rgba(255,255,255,.07);color:#fff}
+.open-pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--line2);color:var(--text);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;padding:10px 14px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.dot{width:7px;height:7px;border-radius:50%;background:#7ee2a0;flex:none}
+@media(max-width:860px){.pillnav{display:none}.open-pill{font-size:10px;padding:9px 11px}.logo-name small{display:none}}
 
 main{position:relative;z-index:1}
 .wrap{width:min(1180px,calc(100% - 36px));margin:0 auto}
 
 /* hero */
-.hero{padding:150px 0 30px;position:relative;overflow:hidden}
-.watermark{position:absolute;right:-10px;top:60px;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(220px,34vw,460px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);pointer-events:none;user-select:none}
-.hero-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px}
-.sticker{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;font-weight:700;border:1.5px solid rgba(255,255,255,.2)}
-.sticker.lime{background:var(--lime);color:#1a2e05;transform:rotate(-2deg);border-color:var(--lime)}
-.sticker.ghost{background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}
-.sticker.pink{background:var(--pink);color:#2b0716;transform:rotate(1.5deg);border-color:var(--pink)}
-h1{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(56px,10.5vw,124px);line-height:.88;letter-spacing:-.03em;margin:0;font-weight:800}
-h1 .grad{background:linear-gradient(92deg,var(--violet2),var(--pink) 45%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-h1 .outline{color:transparent;-webkit-text-stroke:2px #fff}
-.hero-sub{max-width:680px;font-size:clamp(17px,2vw,20px);color:var(--muted);margin:26px 0 0}
-.hero-sub strong{color:#fff}
-.typing-line{margin-top:18px;font-family:"JetBrains Mono",monospace;font-size:15px;color:var(--cyan);min-height:28px}
-.typing-line .cursor{display:inline-block;width:9px;height:18px;background:var(--lime);vertical-align:-3px;margin-left:4px;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.hero-grid{display:grid;grid-template-columns:1.5fr .7fr;gap:28px;align-items:start}
-@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 22px;border-radius:16px;text-decoration:none;font-weight:700;font-size:15px;border:1px solid var(--line);background:rgba(255,255,255,.05);backdrop-filter:blur(8px);transition:.2s}
-.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.35)}
-.btn.primary{background:linear-gradient(92deg,var(--violet),var(--pink));border:none;color:#fff;box-shadow:0 12px 32px rgba(139,92,246,.4)}
-.btn.lime{background:var(--lime);color:#1a2e05;border:none}
-.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:46px}
+.hero{padding:168px 0 20px;position:relative}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;color:var(--muted);margin-bottom:28px}
+.hero-eyebrow::before{content:"";width:36px;height:1px;background:var(--accent)}
+h1{font-size:clamp(52px,8.5vw,96px);line-height:.98;letter-spacing:-.03em;margin:0;font-weight:700}
+h1 em{font-family:"Newsreader",serif;font-style:italic;font-weight:500;color:var(--accent);letter-spacing:-.01em}
+.hero-sub{max-width:660px;font-size:clamp(17px,2vw,19.5px);color:var(--muted);margin:28px 0 0;font-weight:400}
+.hero-sub strong{color:var(--text);font-weight:600}
+.role-line{margin-top:22px;font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.1em;color:var(--muted2)}
+.role-line b{color:var(--text);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:12px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--line2);background:transparent;color:var(--text);transition:border-color .2s,background .2s,transform .2s}
+.btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.04)}
+.btn.primary{background:var(--text);color:#0c0f18;border-color:var(--text)}
+.btn.primary:hover{background:#fff}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin-top:64px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;backdrop-filter:blur(10px)}
-.stat b{font-family:"Bricolage Grotesque",sans-serif;font-size:32px;display:block;line-height:1;background:linear-gradient(90deg,#fff,var(--violet2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat span{font-size:12px;color:var(--muted2);font-family:"JetBrains Mono",monospace;letter-spacing:.04em;display:block;margin-top:7px;line-height:1.4}
-
-/* marquee */
-.marquee{margin:44px 0 6px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:14px 0;background:rgba(255,255,255,.02)}
-.marquee-track{display:flex;gap:0;width:max-content;animation:scrollx 28s linear infinite}
-.marquee-track span{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:18px;padding:0 18px;white-space:nowrap;color:var(--muted)}
-.marquee-track span i{font-style:normal;color:var(--pink)}
-@keyframes scrollx{to{transform:translateX(-50%)}}
+.stat{background:var(--bg2);padding:22px 20px}
+.stat b{font-size:30px;font-weight:700;display:block;line-height:1;letter-spacing:-.02em}
+.stat b.word{font-size:19px;padding-top:6px}
+.stat span{font-size:11px;color:var(--muted2);font-family:"JetBrains Mono",monospace;letter-spacing:.06em;display:block;margin-top:9px;line-height:1.5}
 
 /* sections */
-section{padding:78px 0 10px}
+section{padding:96px 0 8px}
 .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;flex-wrap:wrap}
-.sec-num{font-family:"JetBrains Mono",monospace;color:var(--cyan);font-size:13px;letter-spacing:.15em;font-weight:700}
-.sec-num::after{content:"";display:inline-block;width:44px;height:1px;background:var(--cyan);vertical-align:middle;margin-left:12px;opacity:.6}
-h2{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(36px,5.5vw,58px);line-height:1;margin:6px 0 14px;letter-spacing:-.02em}
-.sec-intro{color:var(--muted);max-width:680px;font-size:17px;margin:0 0 28px}
+.sec-num{font-family:"JetBrains Mono",monospace;color:var(--muted2);font-size:12px;letter-spacing:.18em;font-weight:500}
+.sec-num::after{content:"";display:inline-block;width:44px;height:1px;background:var(--line2);vertical-align:middle;margin-left:12px}
+h2{font-size:clamp(32px,4.5vw,46px);line-height:1.08;margin:6px 0 14px;letter-spacing:-.025em;font-weight:700}
+h2 em{font-family:"Newsreader",serif;font-style:italic;font-weight:500;color:var(--accent)}
+.sec-intro{color:var(--muted);max-width:660px;font-size:17px;margin:0 0 34px}
 .reveal{opacity:1;transform:none}
-.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
 .js .reveal.in{opacity:1;transform:none}
 
 /* about */
-.about-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:22px}
+.about-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:20px}
 @media(max-width:860px){.about-grid{grid-template-columns:1fr}}
-.glass{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;backdrop-filter:blur(12px)}
-.glass p{color:var(--muted);margin:0 0 16px;font-size:16.5px}
-.glass p strong{color:#fff}
-.glass p:last-child{margin-bottom:0}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chip{font-family:"JetBrains Mono",monospace;font-size:11.5px;padding:8px 12px;border-radius:999px;background:rgba(139,92,246,.14);border:1px solid rgba(167,139,250,.35);color:#ddd6fe}
-.chip.c{background:rgba(34,211,238,.1);border-color:rgba(34,211,238,.35);color:#a5f3fc}
-.chip.l{background:rgba(190,242,100,.1);border-color:rgba(190,242,100,.35);color:#ecfccb}
-.fact-list{display:flex;flex-direction:column}
-.fact{padding:16px 4px;border-bottom:1px solid var(--line)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.panel p{color:var(--muted);margin:0 0 16px;font-size:16.5px}
+.panel p strong{color:var(--text);font-weight:600}
+.panel p:last-child{margin-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:"JetBrains Mono",monospace;font-size:11.5px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--muted)}
+.chip:first-child{background:var(--accent-soft);border-color:var(--accent-line);color:#d9d4ff}
+.fact-list{display:flex;flex-direction:column;padding:14px 30px}
+.fact{padding:15px 0;border-bottom:1px solid var(--line)}
 .fact:last-child{border-bottom:none}
-.fact small{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;color:var(--muted2);display:block;margin-bottom:4px}
-.fact div{font-weight:600;font-size:15.5px}
-.fact a{color:var(--cyan);text-decoration:none;word-break:break-all}
+.fact small{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.16em;color:var(--muted2);display:block;margin-bottom:4px}
+.fact div{font-weight:500;font-size:15.5px}
+.fact a{color:var(--accent);text-decoration:none;word-break:break-all}
+.fact a:hover{text-decoration:underline}
 
-/* bento skills */
+/* skills */
 .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-.bcard{border-radius:var(--radius);padding:26px;border:1px solid var(--line);background:var(--card);backdrop-filter:blur(12px);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;position:relative;overflow:hidden}
-.bcard:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.3);box-shadow:0 20px 44px rgba(0,0,0,.35)}
-.bcard h3{margin:0 0 6px;font-family:"Bricolage Grotesque",sans-serif;font-size:22px}
-.bcard p{margin:0 0 16px;color:var(--muted2);font-size:14px}
+.bcard{border-radius:var(--radius);padding:28px;border:1px solid var(--line);background:var(--card);transition:border-color .25s ease,background .25s ease}
+.bcard:hover{border-color:var(--line2);background:var(--card2)}
+.bcard h3{margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-.01em}
+.bcard p{margin:0 0 18px;color:var(--muted2);font-size:14px}
 .span7{grid-column:span 7}.span5{grid-column:span 5}.span6{grid-column:span 6}
 @media(max-width:860px){.span7,.span5,.span6{grid-column:span 12}}
-.bcard.ai{background:linear-gradient(150deg,rgba(139,92,246,.22),rgba(255,255,255,.04) 60%)}
-.bcard.data{background:linear-gradient(150deg,rgba(34,211,238,.16),rgba(255,255,255,.04) 60%)}
-.bcard.lang{background:linear-gradient(150deg,rgba(190,242,100,.14),rgba(255,255,255,.04) 60%)}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
-.tag{font-size:13px;font-weight:600;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}
-.tag.hot{background:#fff;color:#111;border-color:#fff}
+.tag{font-size:13px;font-weight:500;padding:7px 12px;border-radius:8px;background:rgba(255,255,255,.045);border:1px solid var(--line);color:var(--muted)}
+.tag.hot{background:var(--text);color:#0c0f18;border-color:var(--text);font-weight:600}
 
 /* timeline */
-.timeline{position:relative;margin-left:8px;padding-left:30px;border-left:2px solid rgba(255,255,255,.12)}
-.t-item{position:relative;padding:0 0 30px}
-.t-item::before{content:"";position:absolute;left:-39px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--violet2)}
-.t-item:nth-child(2)::before{border-color:var(--cyan)}
-.t-item:nth-child(3)::before{border-color:var(--pink)}
-.t-item:nth-child(4)::before{border-color:var(--lime)}
-.t-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;backdrop-filter:blur(10px)}
-.t-card:hover{border-color:rgba(255,255,255,.28)}
-.t-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
-.t-date{font-family:"JetBrains Mono",monospace;font-size:11px;background:rgba(255,255,255,.08);padding:6px 10px;border-radius:999px;color:var(--cyan)}
+.timeline{position:relative;margin-left:8px;padding-left:30px;border-left:1px solid var(--line2)}
+.t-item{position:relative;padding:0 0 26px}
+.t-item:last-child{padding-bottom:4px}
+.t-item::before{content:"";position:absolute;left:-36px;top:9px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.t-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:border-color .25s ease}
+.t-card:hover{border-color:var(--line2)}
+.t-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.t-date{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:5px 10px;border-radius:999px;color:var(--muted)}
 .t-loc{font-size:13px;color:var(--muted2)}
-.t-card h3{margin:0;font-family:"Bricolage Grotesque",sans-serif;font-size:23px}
-.t-card h4{margin:2px 0 10px;color:var(--violet2);font-size:15px;font-weight:600}
+.t-card h3{margin:0;font-size:22px;font-weight:600;letter-spacing:-.01em}
+.t-card h4{margin:3px 0 10px;color:var(--accent);font-size:15px;font-weight:500}
 .t-card p{margin:0;color:var(--muted);font-size:15.5px}
 
 /* projects */
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:980px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.proj-grid{grid-template-columns:1fr}}
-.pcard{border-radius:22px;padding:24px;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(12px);display:flex;flex-direction:column;gap:10px;transition:.25s;position:relative;overflow:hidden}
-.pcard:hover{transform:translateY(-5px) rotate(-.3deg);border-color:rgba(255,255,255,.32);box-shadow:0 22px 44px rgba(0,0,0,.4)}
-.pcard .emoji{font-size:28px;width:52px;height:52px;display:grid;place-items:center;border-radius:16px;background:rgba(255,255,255,.07);border:1px solid var(--line)}
-.pcard h3{margin:4px 0 0;font-family:"Bricolage Grotesque",sans-serif;font-size:20px;line-height:1.15}
+.pcard{border-radius:var(--radius);padding:26px;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;gap:10px;transition:border-color .25s ease,background .25s ease;position:relative}
+.pcard:hover{border-color:var(--line2);background:var(--card2)}
+.pcard .idx{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--muted2)}
+.pcard h3{margin:2px 0 0;font-size:19px;font-weight:600;line-height:1.25;letter-spacing:-.01em;padding-right:52px}
 .pcard p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
-.metric{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--lime);letter-spacing:.03em}
-.pcard a.live{font-weight:700;font-size:14px;color:var(--cyan);text-decoration:none;display:inline-flex;gap:6px;align-items:center;padding:6px 0}
-.badge-live{position:absolute;top:16px;right:16px;font-family:"JetBrains Mono",monospace;font-size:10px;background:var(--lime);color:#1a2e05;padding:5px 9px;border-radius:999px;font-weight:700;transform:rotate(3deg)}
-.badge-soon{position:absolute;top:16px;right:16px;font-family:"JetBrains Mono",monospace;font-size:10px;background:rgba(255,255,255,.12);color:#fff;padding:5px 9px;border-radius:999px;font-weight:700}
+.metric{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted2);letter-spacing:.05em}
+.pcard a.live{font-weight:600;font-size:14px;color:var(--accent);text-decoration:none;display:inline-flex;gap:6px;align-items:center;padding:6px 0}
+.pcard a.live:hover{text-decoration:underline}
+.badge-live{position:absolute;top:22px;right:22px;font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;color:#7ee2a0;border:1px solid rgba(126,226,160,.35);padding:4px 8px;border-radius:999px;font-weight:600}
+.badge-soon{position:absolute;top:22px;right:22px;font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;color:var(--muted2);border:1px solid var(--line);padding:4px 8px;border-radius:999px;font-weight:600}
 
 /* education */
 .edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 @media(max-width:760px){.edu-grid{grid-template-columns:1fr}}
-.ecard{border-radius:22px;padding:26px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02))}
-.ecard .gpa{font-family:"Bricolage Grotesque",sans-serif;font-size:40px;font-weight:800;line-height:1}
-.ecard h3{margin:10px 0 4px;font-size:19px}
+.ecard{border-radius:var(--radius);padding:28px;border:1px solid var(--line);background:var(--card)}
+.ecard .gpa{font-size:38px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.ecard .gpa span{font-size:14px;color:var(--muted2);font-family:"JetBrains Mono",monospace;letter-spacing:.08em;font-weight:500}
+.ecard h3{margin:12px 0 4px;font-size:18px;font-weight:600}
 .ecard p{margin:0;color:var(--muted);font-size:14.5px}
-.ecard.featured{grid-column:span 2;background:linear-gradient(120deg,rgba(139,92,246,.25),rgba(219,39,119,.16))}
+.ecard.featured{grid-column:span 2;background:linear-gradient(120deg,rgba(143,131,232,.13),rgba(255,255,255,.02) 65%)}
 @media(max-width:760px){.ecard.featured{grid-column:span 1}}
 
 /* beyond */
 .beyond-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:860px){.beyond-grid{grid-template-columns:1fr}}
-.beyond-card{border-radius:22px;padding:24px;background:var(--card);border:1px solid var(--line)}
-.beyond-card h3{margin:10px 0 8px;font-family:"Bricolage Grotesque",sans-serif;font-size:20px}
+.beyond-card{border-radius:var(--radius);padding:28px;background:var(--card);border:1px solid var(--line)}
+.beyond-card .kicker{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.16em;color:var(--muted2)}
+.beyond-card h3{margin:10px 0 8px;font-size:19px;font-weight:600}
 .beyond-card p{margin:0;color:var(--muted);font-size:15px}
-.travel{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.travel span{font-size:13px;font-weight:700;padding:8px 12px;border-radius:999px;background:#fff;color:#111;transform:rotate(-1deg)}
-.travel span:nth-child(even){background:var(--yellow);transform:rotate(1.5deg)}
-.travel span:nth-child(3n){background:var(--cyan)}
+.travel{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.travel span{font-size:12.5px;font-weight:500;padding:6px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
 
 /* contact */
-.contact-box{border-radius:32px;padding:clamp(28px,5vw,56px);background:linear-gradient(130deg,rgba(139,92,246,.32),rgba(219,39,119,.22) 50%,rgba(8,145,178,.25));border:1px solid rgba(255,255,255,.2);position:relative;overflow:hidden;text-align:left}
-.contact-box h2{font-size:clamp(38px,6vw,68px);margin-bottom:12px}
-.contact-box p{color:#e9e4ff;max-width:620px;font-size:17px}
-.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:26px}
+.contact-box{border-radius:24px;padding:clamp(30px,5vw,56px);background:linear-gradient(135deg,rgba(143,131,232,.14),rgba(255,255,255,.02) 55%);border:1px solid var(--line2);position:relative;overflow:hidden}
+.contact-box .kicker{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;color:var(--accent);display:block;margin-bottom:18px}
+.contact-box h2{font-size:clamp(34px,5.5vw,56px);margin:0 0 14px}
+.contact-box p{color:var(--muted);max-width:640px;font-size:17px;margin:0}
+.contact-box p strong{color:var(--text);font-weight:600}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}
 @media(max-width:700px){.contact-grid{grid-template-columns:1fr}}
-.contact-item{background:rgba(7,5,18,.55);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:16px 18px;text-decoration:none;display:block;backdrop-filter:blur(8px)}
-.contact-item small{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;color:var(--muted);display:block;margin-bottom:4px}
-.contact-item strong{font-size:16px;word-break:break-all}
-footer{padding:44px 0 110px;color:var(--muted2);font-size:14px}
-.footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}
-.fab{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--lime);color:#1a2e05;font-weight:800;text-decoration:none;padding:15px 20px;border-radius:999px;box-shadow:0 14px 34px rgba(0,0,0,.45);display:flex;gap:8px;align-items:center;font-size:15px;border:2px solid rgba(255,255,255,.5)}
-.fab:hover{transform:translateY(-2px)}
-@media(max-width:640px){.fab{padding:12px 16px;font-size:14px;right:14px;bottom:14px}}
+.contact-item{background:rgba(8,10,18,.5);border:1px solid var(--line);border-radius:14px;padding:16px 18px;text-decoration:none;display:block;transition:border-color .2s}
+a.contact-item:hover{border-color:var(--line2)}
+.contact-item small{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.16em;color:var(--muted2);display:block;margin-bottom:4px}
+.contact-item strong{font-size:16px;font-weight:500;word-break:break-all}
+footer{padding:52px 0 110px;color:var(--muted2);font-size:14px}
+.footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
+.footer-row strong{color:var(--text);font-weight:600}
+.fab{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--text);color:#0c0f18;font-weight:600;text-decoration:none;padding:13px 20px;border-radius:999px;box-shadow:0 12px 30px rgba(0,0,0,.45);font-size:14.5px;transition:transform .2s}
+.fab:hover{transform:translateY(-1px)}
+@media(max-width:640px){.fab{padding:11px 16px;font-size:14px;right:14px;bottom:14px}}
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
   .reveal,.js .reveal{opacity:1;transform:none}
@@ -201,10 +186,10 @@ footer{padding:44px 0 110px;color:var(--muted2);font-size:14px}
 </style>
 </head>
 <body>
-<div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div><div class="grid-bg"></div>
+<div class="ambient"></div>
 
 <header class="topbar">
-  <a class="logo" href="#top" aria-label="AS home"><span class="logo-badge">AS</span><span>AS.<small>ABRAR SHARIFF</small></span></a>
+  <a class="logo" href="#top" aria-label="Abrar Shariff home"><span class="logo-badge">AS</span><span class="logo-name">Abrar Shariff<small>BUSINESS ANALYST · AI</small></span></a>
   <nav class="pillnav" aria-label="Main navigation">
     <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#beyond">Beyond</a><a href="#contact">Contact</a>
   </nav>
@@ -214,87 +199,70 @@ footer{padding:44px 0 110px;color:var(--muted2);font-size:14px}
 <main id="top">
   <!-- HERO -->
   <div class="hero wrap">
-    <div class="watermark" aria-hidden="true">AS</div>
-    <div class="hero-grid">
-      <div>
-        <div class="hero-top">
-          <span class="sticker ghost">📍 CHARLOTTE, NC - OPEN TO RELOCATE IN THE US</span>
-        </div>
-        <h1>Abrar<br><span class="grad">Shariff</span></h1>
-        <p class="hero-sub">Business Analyst working with <strong>emerging AI</strong>. I turn messy business problems into clear requirements, smart prompts, agentic workflows and dashboards people actually use. Currently at <strong>Eficens Systems</strong>, finishing my MS in Business Analytics, and building toward fully funded AI PhD research for Fall 2027.</p>
-        <div class="typing-line" aria-live="polite">Open to: <span id="typed">AI Prompt Engineer</span><span class="cursor"></span></div>
-        <div class="cta-row">
-          <a class="btn primary" href="#contact">Let us work together →</a>
-          <a class="btn" href="https://linkedin.com/in/abrarshariff" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a class="btn" href="https://github.com/abrarAi-Dev" target="_blank" rel="noopener">GitHub @abrarAi-Dev ↗</a>
-          <a class="btn lime" href="#projects">See my builds ↓</a>
-        </div>
-        <div class="stats">
-          <div class="stat"><b><span class="count" data-target="3.80" data-dec="2">3.80</span></b><span>GPA - MS COMPUTER SCIENCE</span></div>
-          <div class="stat"><b><span class="count" data-target="3.80" data-dec="2">3.80</span></b><span>GPA - MS BUSINESS ANALYTICS</span></div>
-          <div class="stat"><b><span class="count" data-target="3" data-dec="0">3</span></b><span>DEGREES AND COUNTING</span></div>
-          <div class="stat"><b style="font-size:22px;padding-top:8px">UNICEF</b><span>YOUTH REP TO THE BOARD</span></div>
-          <div class="stat"><b style="font-size:22px;padding-top:8px">Tableau</b><span>CERTIFIED ANALYST</span></div>
-        </div>
-      </div>
-      <div>
-        <div class="glass" style="margin-top:22px;padding:20px">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--cyan)">NOW / FOCUS</div>
-          <p style="margin:8px 0 0;color:var(--text);font-size:15.5px">Prompt engineering, agentic AI workflows, AI evaluation and implementation - plus the business analysis that makes AI actually land in real teams.</p>
-        </div>
-      </div>
+    <div class="hero-eyebrow">CHARLOTTE, NC · OPEN TO RELOCATE IN THE US</div>
+    <h1>Abrar Shariff,<br>business analysis<br>meets <em>applied AI.</em></h1>
+    <p class="hero-sub">Business Analyst working with <strong>emerging AI</strong>. I turn complex business problems into clear requirements, well crafted prompts, agentic workflows and dashboards that teams rely on. Currently at <strong>Eficens Systems</strong>, completing an MS in Business Analytics, and preparing for fully funded AI PhD research in Fall 2027.</p>
+    <p class="role-line">FOCUS · <b>AI PROMPT ENGINEERING</b> · <b>AGENTIC AI</b> · <b>AI EVALUATION</b> · <b>DATA ANALYSIS</b></p>
+    <div class="cta-row">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn" href="#projects">View projects</a>
+      <a class="btn" href="https://linkedin.com/in/abrarshariff" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/abrarAi-Dev" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b><span class="count" data-target="3.80" data-dec="2">3.80</span></b><span>GPA · MS COMPUTER SCIENCE</span></div>
+      <div class="stat"><b><span class="count" data-target="3.80" data-dec="2">3.80</span></b><span>GPA · MS BUSINESS ANALYTICS</span></div>
+      <div class="stat"><b><span class="count" data-target="3" data-dec="0">3</span></b><span>DEGREES COMPLETED AND IN PROGRESS</span></div>
+      <div class="stat"><b class="word">UNICEF</b><span>YOUTH REPRESENTATIVE TO THE BOARD</span></div>
+      <div class="stat"><b class="word">Tableau</b><span>CERTIFIED ANALYST</span></div>
     </div>
   </div>
 
-  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack">
-    <span>Prompt Engineering <i>✦</i></span><span>Agentic AI <i>✦</i></span><span>Business Analysis <i>✦</i></span><span>Tableau <i>✦</i></span><span>SQL <i>✦</i></span><span>AI Evaluation <i>✦</i></span><span>Python <i>✦</i></span><span>Dashboards <i>✦</i></span><span>Requirements <i>✦</i></span><span>LLM Apps <i>✦</i></span>
-  </div></div>
-
   <!-- 01 ABOUT -->
   <section id="about" class="wrap reveal">
-    <div class="sec-head"><span class="sec-num">01 / ABOUT</span></div>
-    <h2>Hey, I am Abrar 👋</h2>
-    <p class="sec-intro">Full name is Abrar Shariff Mohammed. Here is the real story, no fluff.</p>
+    <div class="sec-head"><span class="sec-num">01 · ABOUT</span></div>
+    <h2>About</h2>
+    <p class="sec-intro">Abrar Shariff Mohammed. Analyst first, technologist by training, focused on where business, data and AI meet.</p>
     <div class="about-grid">
-      <div class="glass">
-        <p>I work where <strong>business, data and AI meet</strong>. As a Business Analyst at Eficens Systems, I spend my days evaluating and implementing AI workflows, crafting prompts, testing agentic systems, and turning vague asks like "can AI help here?" into clear requirements, dashboards and working products.</p>
-        <p>Before Charlotte, my path went through <strong>UNICEF India</strong> as a staff member and Youth Representative to the Board, where I helped build the UReport chatbot for young people across India, and <strong>McDonald's</strong> in Chicago as a Software Engineering Intern. That mix taught me to care about both the tech and the humans using it.</p>
-        <p>Right now I am finishing my <strong>MS in Business Analytics at Anderson University</strong> while applying to fully funded AI PhD programs for Fall 2027. My sweet spot is non technical sounding AI that solves very real business problems.</p>
+      <div class="panel">
+        <p>I work where <strong>business, data and AI meet</strong>. As a Business Analyst at Eficens Systems, I evaluate and implement AI workflows, design prompts, test agentic systems, and translate open ended questions such as "can AI help here?" into clear requirements, dashboards and working products.</p>
+        <p>Before Charlotte, my path ran through <strong>UNICEF India</strong>, where I served as a staff member and Youth Representative to the Board and helped build the UReport chatbot for young people across India, and <strong>McDonald's</strong> in Chicago, as a Software Engineering Intern. That combination taught me to weigh the technology and the people using it equally.</p>
+        <p>I am now completing my <strong>MS in Business Analytics at Anderson University</strong> while applying to fully funded AI PhD programs for Fall 2027. My focus is applied AI that solves concrete business problems, explained in language any stakeholder can act on.</p>
         <div class="chips">
-          <span class="chip">Prompt Engineering</span><span class="chip c">Agentic AI</span><span class="chip l">AI Evaluation</span><span class="chip">Business Analysis</span><span class="chip c">Tableau Certified</span><span class="chip">SQL</span><span class="chip l">Chatbots</span>
+          <span class="chip">Prompt Engineering</span><span class="chip">Agentic AI</span><span class="chip">AI Evaluation</span><span class="chip">Business Analysis</span><span class="chip">Tableau Certified</span><span class="chip">SQL</span><span class="chip">Chatbots</span>
         </div>
       </div>
-      <div class="glass fact-list">
-        <div class="fact"><small>LOCATION</small><div>Charlotte, NC, USA - open to relocate anywhere in the US</div></div>
-        <div class="fact"><small>CURRENT ROLE</small><div>Business Analyst - Eficens Systems (2023 to Present)</div></div>
-        <div class="fact"><small>EDUCATION</small><div>MS Business Analytics, Anderson - Expected May 2027</div></div>
+      <div class="panel fact-list">
+        <div class="fact"><small>LOCATION</small><div>Charlotte, NC, USA · open to relocate anywhere in the US</div></div>
+        <div class="fact"><small>CURRENT ROLE</small><div>Business Analyst · Eficens Systems (2023 to Present)</div></div>
+        <div class="fact"><small>EDUCATION</small><div>MS Business Analytics, Anderson · Expected May 2027</div></div>
         <div class="fact"><small>EMAIL</small><div><a href="mailto:abrarshariffmohammed@gmail.com">abrarshariffmohammed@gmail.com</a></div></div>
         <div class="fact"><small>PHONE</small><div><a href="tel:+17043138377">+1 (704) 313-8377</a></div></div>
-        <div class="fact"><small>LANGUAGES</small><div>English, Hindi, Malayalam, Telugu + basics of German, Spanish, Kannada, Bengali</div></div>
+        <div class="fact"><small>LANGUAGES</small><div>English, Hindi, Malayalam, Telugu, plus basics of German, Spanish, Kannada, Bengali</div></div>
       </div>
     </div>
   </section>
 
   <!-- 02 SKILLS -->
   <section id="skills" class="wrap reveal">
-    <div class="sec-head"><span class="sec-num">02 / SKILLS</span></div>
-    <h2>My stack, but make it fun ⚡</h2>
-    <p class="sec-intro">Four buckets. One goal: ship AI and analytics work that business teams actually understand and use.</p>
+    <div class="sec-head"><span class="sec-num">02 · SKILLS</span></div>
+    <h2>Expertise</h2>
+    <p class="sec-intro">Four areas of practice, one standard: AI and analytics work that business teams understand, trust and use.</p>
     <div class="bento">
-      <article class="bcard ai span7">
-        <h3>🤖 AI and Emerging Tech</h3><p>The new stuff I live in every day.</p>
+      <article class="bcard span7">
+        <h3>AI and Emerging Technology</h3><p>Applied AI work, from prompt design to evaluation and rollout.</p>
         <div class="tags"><span class="tag hot">Prompt Engineering</span><span class="tag">Agentic AI Workflows</span><span class="tag">AI Evaluation</span><span class="tag">LLM Applications</span><span class="tag">AI Implementation</span><span class="tag">Chatbot Development</span></div>
       </article>
-      <article class="bcard data span5">
-        <h3>📊 Business and Data Analytics</h3><p>Where I started, and still my superpower.</p>
+      <article class="bcard span5">
+        <h3>Business and Data Analytics</h3><p>The foundation of my practice, and still its core strength.</p>
         <div class="tags"><span class="tag hot">Business Analysis</span><span class="tag">Requirements Gathering</span><span class="tag">Data Analysis</span><span class="tag">Tableau Certified</span><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">BI Reporting</span><span class="tag">Stakeholder Management</span></div>
       </article>
       <article class="bcard span6">
-        <h3>💻 Tech Stack</h3><p>Enough engineering depth to talk to devs and build prototypes myself.</p>
+        <h3>Technical Stack</h3><p>Enough engineering depth to work directly with development teams and prototype independently.</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">AngularJS</span><span class="tag">REST APIs</span><span class="tag">AWS</span><span class="tag">Swift / SwiftUI / iOS</span><span class="tag">Agile and Scrum</span><span class="tag">Git</span></div>
       </article>
-      <article class="bcard lang span6">
-        <h3>🌍 Languages I Speak</h3><p>Helpful with global teams, users and stakeholders.</p>
+      <article class="bcard span6">
+        <h3>Languages</h3><p>Useful with global teams, users and stakeholders.</p>
         <div class="tags"><span class="tag hot">English</span><span class="tag hot">Hindi</span><span class="tag">Malayalam</span><span class="tag">Telugu</span><span class="tag">German (basics)</span><span class="tag">Spanish (basics)</span><span class="tag">Kannada (basics)</span><span class="tag">Bengali (basics)</span></div>
       </article>
     </div>
@@ -302,122 +270,104 @@ footer{padding:44px 0 110px;color:var(--muted2);font-size:14px}
 
   <!-- 03 EXPERIENCE -->
   <section id="experience" class="wrap reveal">
-    <div class="sec-head"><span class="sec-num">03 / EXPERIENCE</span></div>
-    <h2>The journey so far 🚀</h2>
-    <p class="sec-intro">From youth advocacy in India to enterprise AI work in Charlotte. Every stop added a new lens.</p>
+    <div class="sec-head"><span class="sec-num">03 · EXPERIENCE</span></div>
+    <h2>Experience</h2>
+    <p class="sec-intro">From youth advocacy in India to enterprise AI work in Charlotte. Each role added a distinct lens.</p>
     <div class="timeline">
       <div class="t-item"><div class="t-card">
-        <div class="t-meta"><span class="t-date">2023 - PRESENT</span><span class="t-loc">Charlotte, NC - Hybrid</span></div>
-        <h3>Eficens Systems</h3><h4>Business Analyst (Contract) - with Java Full Stack Developer background</h4>
-        <p>Business analysis, requirements gathering, dashboards, APIs and Agile delivery for enterprise clients. Leading the AI side too: evaluating workflows, prompt design, and helping teams adopt agentic tools in a practical, measurable way.</p>
+        <div class="t-meta"><span class="t-date">2023 · PRESENT</span><span class="t-loc">Charlotte, NC · Hybrid</span></div>
+        <h3>Eficens Systems</h3><h4>Business Analyst (Contract), with a Java Full Stack Developer background</h4>
+        <p>Business analysis, requirements gathering, dashboards, APIs and Agile delivery for enterprise clients. I also lead the AI side of the work: evaluating workflows, designing prompts, and helping teams adopt agentic tools in a practical, measurable way.</p>
       </div></div>
       <div class="t-item"><div class="t-card">
-        <div class="t-meta"><span class="t-date">2020 - 2022</span><span class="t-loc">Chicago, IL, USA</span></div>
+        <div class="t-meta"><span class="t-date">2020 · 2022</span><span class="t-loc">Chicago, IL, USA</span></div>
         <h3>McDonald's</h3><h4>Software Engineering Intern</h4>
-        <p>Early engineering experience inside a huge global product org. Learned how software ships at scale, how cross functional teams work, and why clear specs matter as much as clean code.</p>
+        <p>Early engineering experience inside a large global product organization. Learned how software ships at scale, how cross functional teams operate, and why clear specifications matter as much as clean code.</p>
       </div></div>
       <div class="t-item"><div class="t-card">
-        <div class="t-meta"><span class="t-date">JUL 2019 - AUG 2020</span><span class="t-loc">India</span></div>
-        <h3>UNICEF India</h3><h4>Staff Member and Youth Representative to the Board - UReport Chatbot Developer</h4>
-        <p>Built the UReport chatbot reaching young people across India, and represented youth voices at board level. Still one of the most meaningful chapters of my career. Tech for good is not a slogan for me, I have lived it.</p>
+        <div class="t-meta"><span class="t-date">JUL 2019 · AUG 2020</span><span class="t-loc">India</span></div>
+        <h3>UNICEF India</h3><h4>Staff Member and Youth Representative to the Board · UReport Chatbot Developer</h4>
+        <p>Built the UReport chatbot reaching young people across India, and represented youth voices at board level. It remains one of the most meaningful chapters of my career, and the reason technology for social good is a commitment, not a slogan, in my work.</p>
       </div></div>
       <div class="t-item"><div class="t-card">
-        <div class="t-meta"><span class="t-date">EARLIER</span><span class="t-loc">Freelance / Remote</span></div>
+        <div class="t-meta"><span class="t-date">EARLIER</span><span class="t-loc">Freelance · Remote</span></div>
         <h3>Python Tutor and Freelance Web Developer</h3><h4>Teaching and building for clients</h4>
-        <p>Taught Python, built websites for clients, and learned how to explain hard ideas simply. That teaching muscle still shows up in every stakeholder meeting and demo I run.</p>
+        <p>Taught Python, built websites for clients, and learned to explain difficult ideas simply. That teaching discipline still shows up in every stakeholder meeting and demo I run.</p>
       </div></div>
     </div>
   </section>
 
   <!-- 04 PROJECTS -->
   <section id="projects" class="wrap reveal">
-    <div class="sec-head"><span class="sec-num">04 / PROJECTS</span></div>
-    <h2>Things I built and shipped ✨</h2>
-    <p class="sec-intro">Real products, live links where they exist. I like building small tools that solve a very specific pain.</p>
+    <div class="sec-head"><span class="sec-num">04 · PROJECTS</span></div>
+    <h2>Selected Projects</h2>
+    <p class="sec-intro">Products designed around a specific problem, built and shipped end to end.</p>
     <div class="proj-grid">
-      <article class="pcard"><span class="badge-soon">ANDERSON</span><div class="emoji">💘</div><h3>University Dating App</h3><p>AI matched dating app built at Anderson University. Smarter matching using interests and compatibility signals, designed for a campus community.</p><span class="metric">AI MATCHING - CAMPUS PRODUCT</span></article>
-      <article class="pcard"><span class="badge-live">● LIVE</span><div class="emoji">🔎</div><h3>SponsorLens</h3><p>Helps international students find H-1B sponsoring employers fast. No more endless spreadsheets, just a focused search that saves hours.</p><span class="metric">FOR INTERNATIONAL STUDENTS</span><a class="live" href="https://sponsorlens.vercel.app" target="_blank" rel="noopener">Visit SponsorLens ↗</a></article>
-      <article class="pcard"><span class="badge-live">● LIVE</span><div class="emoji">💸</div><h3>Realtime Expense Tracker Pro</h3><p>Live expense tracking app with a clean, instant feel. Built to make everyday money habits visible without the headache.</p><span class="metric">REALTIME - PERSONAL FINANCE</span><a class="live" href="https://realtime-expense-tracker-pro.vercel.app" target="_blank" rel="noopener">Try the tracker ↗</a></article>
-      <article class="pcard"><div class="emoji">🕯️</div><h3>Trauma Tester - Light Up From Within</h3><p>A gentle personal trauma self assessment tool. Thoughtful, private by design, and built with care for people doing hard inner work.</p><span class="metric">LIVE ON VERCEL AND LOVABLE</span></article>
-      <article class="pcard"><div class="emoji">💬</div><h3>UReport Chatbot</h3><p>UNICEF India youth engagement chatbot. Helped young people share opinions and access information at national scale.</p><span class="metric">UNICEF INDIA - YOUTH AT SCALE</span></article>
-      <article class="pcard"><div class="emoji">✍️</div><h3>Pen with Abrar</h3><p>My personal blog on digital wellness and life. Honest writing about phones, focus, and staying human online.</p><span class="metric">BLOG - DIGITAL WELLNESS</span><a class="live" href="https://penwithabrar.blogspot.com" target="_blank" rel="noopener">Read the blog ↗</a></article>
+      <article class="pcard"><span class="badge-soon">ANDERSON</span><span class="idx">P · 01</span><h3>University Dating App</h3><p>AI matched dating app built at Anderson University. Smarter matching using interests and compatibility signals, designed for a campus community.</p><span class="metric">AI MATCHING · CAMPUS PRODUCT</span></article>
+      <article class="pcard"><span class="badge-live">LIVE</span><span class="idx">P · 02</span><h3>SponsorLens</h3><p>Helps international students find H-1B sponsoring employers quickly, replacing hours of spreadsheet research with one focused search.</p><span class="metric">FOR INTERNATIONAL STUDENTS</span><a class="live" href="https://sponsorlens.vercel.app" target="_blank" rel="noopener">Visit SponsorLens ↗</a></article>
+      <article class="pcard"><span class="badge-live">LIVE</span><span class="idx">P · 03</span><h3>Realtime Expense Tracker Pro</h3><p>Live expense tracking with a clean, instant feel. Built to make everyday money habits visible without friction.</p><span class="metric">REALTIME · PERSONAL FINANCE</span><a class="live" href="https://realtime-expense-tracker-pro.vercel.app" target="_blank" rel="noopener">Try the tracker ↗</a></article>
+      <article class="pcard"><span class="idx">P · 04</span><h3>Trauma Tester: Light Up From Within</h3><p>A gentle personal trauma self assessment tool. Thoughtful, private by design, and built with care for people doing difficult inner work.</p><span class="metric">LIVE ON VERCEL AND LOVABLE</span></article>
+      <article class="pcard"><span class="idx">P · 05</span><h3>UReport Chatbot</h3><p>UNICEF India youth engagement chatbot. Helped young people share opinions and access information at national scale.</p><span class="metric">UNICEF INDIA · YOUTH AT SCALE</span></article>
+      <article class="pcard"><span class="idx">P · 06</span><h3>Pen with Abrar</h3><p>A personal blog on digital wellness and life. Honest writing about phones, focus, and staying human online.</p><span class="metric">BLOG · DIGITAL WELLNESS</span><a class="live" href="https://penwithabrar.blogspot.com" target="_blank" rel="noopener">Read the blog ↗</a></article>
     </div>
   </section>
 
   <!-- 05 EDUCATION -->
   <section id="education" class="wrap reveal">
-    <div class="sec-head"><span class="sec-num">05 / EDUCATION</span></div>
-    <h2>School era, still going 🎓</h2>
-    <p class="sec-intro">Two masters degrees, one bachelors, and a PhD dream in progress for Fall 2027.</p>
+    <div class="sec-head"><span class="sec-num">05 · EDUCATION</span></div>
+    <h2>Education</h2>
+    <p class="sec-intro">Two master's degrees, one bachelor's, and doctoral research planned for Fall 2027.</p>
     <div class="edu-grid">
-      <article class="ecard featured"><div class="gpa">3.80 <span style="font-size:16px;color:var(--muted)">GPA</span></div><h3>MS Business Analytics - Anderson University, SC</h3><p>Expected May 2027 - Currently finishing my final phase while working full time in Charlotte. Focus on analytics, AI and decision making.</p></article>
-      <article class="ecard"><div class="gpa">3.80 <span style="font-size:16px;color:var(--muted)">GPA</span></div><h3>MS Computer Science - University of Illinois Springfield</h3><p>2022 to 2023 - Deepened my CS foundation in the US and opened the door to analyst plus engineering roles.</p></article>
-      <article class="ecard"><div class="gpa">3.79 <span style="font-size:16px;color:var(--muted)">GPA</span></div><h3>BTech Computer Science - Dr. MGR Educational and Research Institute, India</h3><p>2017 to 2021 - Where it all started. Also: ICF Higher Secondary School, Chennai for high school.</p></article>
+      <article class="ecard featured"><div class="gpa">3.80 <span>GPA</span></div><h3>MS Business Analytics · Anderson University, SC</h3><p>Expected May 2027. Completing the final phase while working full time in Charlotte, with a focus on analytics, AI and decision making.</p></article>
+      <article class="ecard"><div class="gpa">3.80 <span>GPA</span></div><h3>MS Computer Science · University of Illinois Springfield</h3><p>2022 to 2023. Deepened my computer science foundation in the US and opened the door to combined analyst and engineering roles.</p></article>
+      <article class="ecard"><div class="gpa">3.79 <span>GPA</span></div><h3>BTech Computer Science · Dr. MGR Educational and Research Institute, India</h3><p>2017 to 2021. Where the technical foundation began. High school: ICF Higher Secondary School, Chennai.</p></article>
     </div>
   </section>
 
   <!-- 06 BEYOND WORK -->
   <section id="beyond" class="wrap reveal">
-    <div class="sec-head"><span class="sec-num">06 / BEYOND WORK</span></div>
-    <h2>Outside the job title 🌎</h2>
-    <p class="sec-intro">Work is a big part of my life, but it is not the whole story.</p>
+    <div class="sec-head"><span class="sec-num">06 · BEYOND WORK</span></div>
+    <h2>Beyond Work</h2>
+    <p class="sec-intro">The commitments and interests that shape how I work.</p>
     <div class="beyond-grid">
-      <article class="beyond-card"><div style="font-size:30px">🇺🇳</div><h3>Youth voice, always</h3><p>UNICEF Youth Representative to the Board and a national leader with Bharat Scouts and Guides. Leadership and service have been part of my life since I was young, and they still shape how I show up at work.</p></article>
-      <article class="beyond-card"><div style="font-size:30px">✈️</div><h3>Travel feeds the work</h3><p>I have explored a lot and I document it as I go. New places make me a better analyst because they make me a better listener.</p><div class="travel"><span>USA</span><span>Thailand</span><span>Malaysia</span><span>Bangladesh</span><span>Nepal</span><span>Dubai</span></div></article>
-      <article class="beyond-card"><div style="font-size:30px">📸</div><h3>America in Frames</h3><p>My Instagram creator series sharing America one state, one story at a time. Part travel diary, part love letter to the everyday moments most people walk past.</p></article>
+      <article class="beyond-card"><span class="kicker">LEADERSHIP</span><h3>Youth voice and service</h3><p>UNICEF Youth Representative to the Board and a national leader with Bharat Scouts and Guides. Leadership and service have been part of my life since I was young, and they still shape how I show up at work.</p></article>
+      <article class="beyond-card"><span class="kicker">TRAVEL</span><h3>Travel informs the work</h3><p>I have explored widely and document the journey as I go. New places make me a better analyst, because they make me a better listener.</p><div class="travel"><span>USA</span><span>Thailand</span><span>Malaysia</span><span>Bangladesh</span><span>Nepal</span><span>Dubai</span></div></article>
+      <article class="beyond-card"><span class="kicker">CREATOR</span><h3>America in Frames</h3><p>An Instagram creator series sharing America one state and one story at a time. Part travel diary, part study of the everyday moments most people walk past.</p></article>
     </div>
   </section>
 
   <!-- 07 CONTACT -->
   <section id="contact" class="wrap reveal">
-    <div class="sec-head"><span class="sec-num">07 / CONTACT</span></div>
+    <div class="sec-head"><span class="sec-num">07 · CONTACT</span></div>
     <div class="contact-box">
-      <span class="sticker lime" style="margin-bottom:16px">LET US TALK</span>
-      <h2>Got a role, a project,<br>or just a good idea?</h2>
-      <p>I am Abrar Shariff Mohammed and I am actively open to AI Prompt Engineer, Agentic AI, AI Analyst, Business Analyst, Data Analyst, Business Systems Analyst, Product Analyst, BI Analyst, Business Operations Analyst and Implementation Analyst roles across the US. Fastest way to reach me is email or a call.</p>
+      <span class="kicker">CONTACT</span>
+      <h2>Open to the right <em>opportunity.</em></h2>
+      <p>I am <strong>Abrar Shariff Mohammed</strong>, actively open to AI Prompt Engineer, Agentic AI, AI Analyst, Business Analyst, Data Analyst, Business Systems Analyst, Product Analyst, BI Analyst, Business Operations Analyst and Implementation Analyst roles across the US. Email or a call is the fastest way to reach me.</p>
       <div class="contact-grid">
-        <a class="contact-item" href="mailto:abrarshariffmohammed@gmail.com"><small>EMAIL ME</small><strong>abrarshariffmohammed@gmail.com</strong></a>
+        <a class="contact-item" href="mailto:abrarshariffmohammed@gmail.com"><small>EMAIL</small><strong>abrarshariffmohammed@gmail.com</strong></a>
         <a class="contact-item" href="tel:+17043138377"><small>CALL / TEXT</small><strong>+1 (704) 313-8377</strong></a>
         <a class="contact-item" href="https://linkedin.com/in/abrarshariff" target="_blank" rel="noopener"><small>LINKEDIN</small><strong>linkedin.com/in/abrarshariff ↗</strong></a>
         <a class="contact-item" href="https://github.com/abrarAi-Dev" target="_blank" rel="noopener"><small>GITHUB</small><strong>github.com/abrarAi-Dev ↗</strong></a>
-        <a class="contact-item" href="https://penwithabrar.blogspot.com" target="_blank" rel="noopener"><small>BLOG - PEN WITH ABRAR</small><strong>penwithabrar.blogspot.com ↗</strong></a>
-        <div class="contact-item"><small>BASED IN</small><strong>Charlotte, NC - open to relocate in the US</strong></div>
+        <a class="contact-item" href="https://penwithabrar.blogspot.com" target="_blank" rel="noopener"><small>BLOG · PEN WITH ABRAR</small><strong>penwithabrar.blogspot.com ↗</strong></a>
+        <div class="contact-item"><small>BASED IN</small><strong>Charlotte, NC · open to relocate in the US</strong></div>
       </div>
-      <div class="cta-row"><a class="btn lime" href="mailto:abrarshariffmohammed@gmail.com">Say hello →</a><a class="btn" href="#top">Back to top ↑</a></div>
+      <div class="cta-row"><a class="btn primary" href="mailto:abrarshariffmohammed@gmail.com">Send an email</a><a class="btn" href="#top">Back to top ↑</a></div>
     </div>
   </section>
 
   <footer class="wrap">
     <div class="footer-row">
-      <div><strong style="color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-size:18px">AS.</strong> &nbsp;Abrar Shariff Mohammed - Business Analyst working with emerging AI</div>
-      <div>© 2026 Abrar Shariff Mohammed - Made with curiosity in Charlotte, NC</div>
+      <div><strong>Abrar Shariff Mohammed</strong> · Business Analyst working with emerging AI</div>
+      <div>© 2026 Abrar Shariff Mohammed · Charlotte, NC</div>
     </div>
   </footer>
 </main>
 
-<a class="fab" href="#contact">💬 Say hi</a>
+<a class="fab" href="#contact">Get in touch</a>
 
 <script>
 document.documentElement.classList.add('js');
 (function(){
-  // duplicate marquee for seamless loop
-  var track=document.getElementById('marqueeTrack');
-  if(track){ track.innerHTML += track.innerHTML; }
-
-  // typing animation
-  var roles=["AI Prompt Engineer","Agentic AI Builder","AI Analyst","Business Analyst","Data Analyst","Product Analyst","BI Analyst","Implementation Analyst"];
-  var el=document.getElementById('typed'); var ri=0, ci=roles[0].length, deleting=false;
-  function tick(){
-    var word=roles[ri];
-    if(!deleting){ ci++; if(ci>=word.length){ ci=word.length; deleting=true; setTimeout(tick,1600); el.textContent=word.slice(0,ci); return; } }
-    else { ci--; if(ci<=0){ ci=0; deleting=false; ri=(ri+1)%roles.length; } }
-    el.textContent=roles[ri].slice(0,ci) || roles[ri].slice(0,1);
-    if(deleting && ci===0){ el.textContent=""; }
-    setTimeout(tick, deleting?38:72);
-  }
-  // start by deleting first word after pause
-  setTimeout(function(){ deleting=true; tick(); }, 1800);
-
   // counters
   function animateCount(node){
     var target=parseFloat(node.getAttribute('data-target')); var dec=parseInt(node.getAttribute('data-dec')||'0',10);
@@ -426,7 +376,9 @@ document.documentElement.classList.add('js');
     requestAnimationFrame(step);
   }
   var counted=false;
-  // reveal + counters observer
+  function runCounters(){ if(counted) return; counted=true; document.querySelectorAll('.count').forEach(animateCount); }
+
+  // gentle scroll reveal
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
@@ -436,29 +388,11 @@ document.documentElement.classList.add('js');
   // Safety fallback so content is never hidden for long, even in screenshot or print views
   setTimeout(function(){ document.querySelectorAll('.reveal').forEach(function(n){ n.classList.add('in'); }); },2200);
 
-  function runCounters(){ if(counted) return; counted=true; document.querySelectorAll('.count').forEach(animateCount); }
   var statIO=new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ runCounters(); statIO.disconnect(); } });
   },{threshold:.08,rootMargin:'0px 0px 80px 0px'});
   var statsEl=document.querySelector('.stats'); if(statsEl) statIO.observe(statsEl);
   setTimeout(runCounters,2600);
-
-  // subtle parallax on blobs with mouse (desktop, respects reduced motion via CSS check)
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduce){
-    document.addEventListener('mousemove',function(ev){
-      var x=(ev.clientX/window.innerWidth-.5)*18, y=(ev.clientY/window.innerHeight-.5)*12;
-      var wm=document.querySelector('.watermark'); if(wm) wm.style.transform='translate('+(-x)+'px,'+(y)+'px)';
-    },{passive:true});
-    // tilt on project cards
-    document.querySelectorAll('.pcard,.bcard').forEach(function(card){
-      card.addEventListener('mousemove',function(ev){
-        var r=card.getBoundingClientRect(); var rx=((ev.clientY-r.top)/r.height-.5)*-4; var ry=((ev.clientX-r.left)/r.width-.5)*4;
-        card.style.transform='perspective(800px) rotateX('+rx+'deg) rotateY('+ry+'deg) translateY(-4px)';
-      });
-      card.addEventListener('mouseleave',function(){ card.style.transform=''; });
-    });
-  }
 })();
 </script>
 </body>
